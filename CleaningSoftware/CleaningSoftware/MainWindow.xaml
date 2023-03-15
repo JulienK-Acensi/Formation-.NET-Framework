@@ -10,21 +10,51 @@
     <Grid>
         <!-- #region Header -->
         <Rectangle x:Name="TopContainer" HorizontalAlignment="Center" Height="175" VerticalAlignment="Top" Width="1000" Fill="#FF007791"/>
-        <Label x:Name="StatusIndicator" Content="Analyze needed" HorizontalAlignment="Left" Margin="35,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="40" FontWeight="Bold" Width="300"/>
+        <Label x:Name="StatusIndicator" Content="Analyze needed" HorizontalAlignment="Left" Margin="35,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="40" FontWeight="Bold" Width="602"/>
 
         <Label x:Name="CleaningAmountText" Content="Size to clean:" HorizontalAlignment="Left" Margin="35,90,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="22" Width="150"/>
         <Label x:Name="CleaningAmountValue" Content="Unknown" HorizontalAlignment="Left" Margin="185,90,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="22" Width="150"/>
 
         <Label x:Name="LastCleaningText" Content="Last Cleaning:" HorizontalAlignment="Left" Margin="35,120,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="22" Width="150"/>
         <Label x:Name="LastCleaningValue" Content="Never" HorizontalAlignment="Left" Margin="185,120,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="22" Width="150"/>
-        <Button x:Name="AnalyzeBTN" Content="ANALYZE" HorizontalAlignment="Left" Margin="657,48,0,0" VerticalAlignment="Top" Height="80" Width="300" BorderBrush="White" Background="#FF007791" BorderThickness="5,5,5,5" Foreground="White" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="30" FontWeight="Bold"/>
+        <Button x:Name="AnalyzeBTN" Content="ANALYZE" HorizontalAlignment="Left" Margin="657,48,0,0" VerticalAlignment="Top" Height="80" Width="300" BorderBrush="White" Background="#FF007791" BorderThickness="5,5,5,5" Foreground="White" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="30" FontWeight="Bold" Click="OnAnalyzeClicked"/>
         <Rectangle x:Name="TopContainer_Copy" HorizontalAlignment="Center" Height="10" VerticalAlignment="Top" Width="1000" Fill="#FFF3F3F3" Margin="0,175,0,0"/>
         <!--#endregion-->
-        
+
         <!-- #region Body -->
+        <Grid HorizontalAlignment="Center" Width="1000" Margin="0,185,0,90" ShowGridLines="false">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="500"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="CleanBTN" Content="CLEAN" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="180" Width="400" Background="#FF007791" BorderBrush="White" Foreground="White" BorderThickness="5,5,5,8" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="30" Padding="1,90,1,1" Click="OnCleanClicked"/>
+            <Button Content="HISTORY" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="180" Width="400" Background="#FF007791" BorderBrush="White" Foreground="White" BorderThickness="5,5,5,8" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="30" Padding="1,90,1,1" Click="OnHistoryClicked"/>
+            <Button Content="UPDATE" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="180" Width="400" Background="#FF007791" BorderBrush="White" Foreground="White" BorderThickness="5,5,5,8" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="30" Padding="1,90,1,1" Click="OnUpdateClicked"/>
+            <Button Content="ABOUT" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="180" Width="400" Background="#FF007791" BorderBrush="White" Foreground="White" BorderThickness="5,5,5,8" FontFamily="Bahnschrift SemiBold SemiCondensed" FontSize="30" Padding="1,90,1,1" Click="OnAboutClicked"/>
+
+            <Image HorizontalAlignment="Center" Height="104" Margin="0,24,0,0" VerticalAlignment="Top" Width="100" Source="/cleaning-icon.png" Grid.Row="0" IsHitTestVisible="False"/>
+            <Image HorizontalAlignment="Center" Height="76" Margin="0,36,0,0" VerticalAlignment="Top" Width="100" Source="/history-icon.png" Grid.Column="1" Grid.Row="0" IsHitTestVisible="False"/>
+            <Image HorizontalAlignment="Center" Height="80" Margin="0,31,0,0" VerticalAlignment="Top" Width="100" Source="/update-icon.png" Grid.Row="1" IsHitTestVisible="False"/>
+            <Image HorizontalAlignment="Center" Height="69" Margin="0,31,0,0" VerticalAlignment="Top" Width="100" Source="/question-mark.png" Grid.Column="1" Grid.Row="1" IsHitTestVisible="False"/>
+
+        </Grid>
+
         <!--#endregion-->
 
         <!--#region Footer-->
+
+        <Rectangle HorizontalAlignment="Center" Height="90" Margin="0,594,0,0" VerticalAlignment="Top" Width="1000" Fill="#FFF3F3F3"/>
+        <Label x:Name="CopyrightText" Content="Copyright 2023 - Julien Kuhn" HorizontalAlignment="Center" Margin="0,603,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,-1.098" Width="922" FontFamily="Bahnschrift" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <Rectangle HorizontalAlignment="Center" Height="45" Margin="0,639,0,0" VerticalAlignment="Top" Width="1000" Fill="#FFFD7D7D" Visibility="Hidden"/>
+        <Label x:Name="informationText" Content="Information should be displayed here ..." HorizontalAlignment="Center" Margin="0,643,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,-1.098" Width="922" FontFamily="Bahnschrift" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+
+
         <!--#endregion-->
     </Grid>
 </Window>

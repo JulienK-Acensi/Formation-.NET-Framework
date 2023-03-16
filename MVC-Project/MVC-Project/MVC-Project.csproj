@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>MVC_Project</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Tests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MVC-Project.Core.Infrastructure\MVC-Project.Core.Infrastructure.csproj" />
+    <ProjectReference Include="..\MVCProject.Core.Domain\MVC-Project.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

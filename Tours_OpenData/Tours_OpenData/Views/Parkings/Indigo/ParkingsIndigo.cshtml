@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Tours_OpenData.Parkings_Indigo.Domain.Parking>
+
+@{
+    ViewData["Title"] = "Tours OpenData - Indigo";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    @foreach(var parking in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayNameFor(modelItem => parking.libelle_parking);
+            </td>
+@*            <td>
+                @Html.DisplayNameFor(modelItem => parking.places_libres) + "/" + ;
+            </td>*@
+       </tr>
+    }
+</div>

@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Tours_OpenData.Parkings_Indigo\Tours_OpenData.Parkings_Indigo.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\ParkingsIndigo\" />
-  </ItemGroup>
-
 </Project>

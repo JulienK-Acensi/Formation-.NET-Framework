@@ -1,20 +1,41 @@
-﻿@model IEnumerable<Tours_OpenData.Parkings_Indigo.Domain.Parking>
-
-@{
+﻿@{
     ViewData["Title"] = "Tours OpenData - Indigo";
 }
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
-    @foreach(var parking in Model)
-    {
+    <table>
         <tr>
-            <td>
-                @Html.DisplayNameFor(modelItem => parking.libelle_parking);
-            </td>
-@*            <td>
-                @Html.DisplayNameFor(modelItem => parking.places_libres) + "/" + ;
-            </td>*@
-       </tr>
-    }
+            @foreach (var parking in ViewBag.Parkings)
+            {
+                <th style="border:3px solid; padding: 5px;">
+                    @parking.libelle_parking
+                </th>
+            }
+        </tr>
+        <tr>
+            @foreach (var parking in ViewBag.Parkings)
+            {
+                <td style="border:3px solid; padding: 5px;">
+                    <ul>
+                        <li>
+                            @parking.adresse @parking.commune (@parking.code_postal)
+                        </li>
+                        @if (parking.places_libres != null)
+                        {
+                            <li>
+                                @parking.places_libres / @parking.capacite
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                ? / @parking.capacite
+                            </li>
+                        }
+                    </ul>
+                </td>
+            }
+        </tr>
+    </table>
 </div>

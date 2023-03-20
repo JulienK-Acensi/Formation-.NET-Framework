@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Tours_OpenData.Parkings_Indigo.Domain;
 using Tours_OpenData.Parkings_Indigo.Infrastructures.Contexts;
+using Tours_OpenData.Parkings_Indigo.Infrastructures.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<ParkingContext>(options =>
 
     });
 });
+
+builder.Services.AddScoped<IParkingRepository, DefaultParkingRepository>();
 
 var app = builder.Build();
 

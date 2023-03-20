@@ -9,21 +9,22 @@ namespace Tours_OpenData.Controllers.Parkings.Indigo
     [ApiController]
     public class ParkingsIndigoController : Controller
     {
-        private readonly ParkingContext _context = null;
+        private readonly IParkingRepository _repository = null;
 
-        private List<Parking> _parkings = new List<Parking>();
+        public List<Parking> _parkings = new List<Parking>();
 
-        public ParkingsIndigoController(ParkingContext context)
+        public ParkingsIndigoController(IParkingRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
             //var model = Enumerable.Range(1, 10).Select(item => new Parking());
-            var query = from parking in this._context.Parkings
-                        select parking;
+
+            var _parkings = this._repository.GetAll().ToList();
+            this.ViewBag.parkings = _parkings;
 
             return View("Views/Parkings/Indigo/ParkingsIndigo.cshtml");
             //_parkings = query.ToList();

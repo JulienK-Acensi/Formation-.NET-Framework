@@ -1,7 +1,11 @@
-﻿namespace Tours_OpenData.Parkings_Indigo.Domain
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace Tours_OpenData.Parkings_Indigo.Domain
 {
     public class Parking
     {
+        [Key]
         public int key { get; set; }
         public string libelle_parking { get; set; }
         public string adresse { get; set; }
